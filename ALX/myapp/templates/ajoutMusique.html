@@ -1,0 +1,16 @@
+{% extends "base.html" %} {% block content %}
+<h1>Liste des Musiques</h1>
+<ul>
+    {% for musique in musiques %}
+    <li>
+        {{ musique.titre }} - {{ musique.artiste }} ({{ musique.duree }} {{ musique.style }} {{ musique.date_ajout }})
+        {% if musique.fichier %}
+            <audio controls>
+                <source src="{{ musique.fichier.url }}" type="audio/mpeg">
+                Votre navigateur ne supporte pas la lecture audio.
+            </audio>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
