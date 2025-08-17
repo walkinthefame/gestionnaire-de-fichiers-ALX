@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Liste des Prods de ALX en libre accès</h1>
+<link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+<ul>
+        {% for musique in musiques %}
+        <li>
+                {{ musique.titre }} - {{ musique.artiste }} ({{ musique.duree }} {{ musique.style }} {{ musique.date_ajout }})
+                {% if musique.fichier %}
+                        <audio class="js-player" controls>
+                                <source src="{{ musique.fichier.url }}" type="audio/mpeg">
+                                Votre navigateur ne supporte pas la lecture audio.
+                        </audio>
+                {% endif %}
+        </li>
+        {% endfor %}
+</ul>
+<script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const players = Array.from(document.querySelectorAll('.js-player')).map(p => new Plyr(p));
+    });
+</script>
+{% endblock %}

@@ -17,6 +17,8 @@ class Musique(models.Model):
     fichier = models.FileField(upload_to='musiques/', blank=False, null=False)
     publique = models.BooleanField(default=False, help_text="Accessible à tous les utilisateurs")
     utilisateurs_autorises = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, related_name='musiques_autorisees')
+    utilisateurs_autorises_telechargement = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, related_name='musiques_autorisees_telechargement')
+    ecoutable_accueil = models.BooleanField(default=False, help_text="Musique de découverte")
 
 # Supprimer le fichier du disque quand une musique est supprimée
 @receiver(post_delete, sender=Musique)

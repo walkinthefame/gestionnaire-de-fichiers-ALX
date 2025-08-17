@@ -36,7 +36,9 @@ def register(request):
         form = UserCreationForm()
     return render(request, 'register.html', {'form': form})
 
-
+def prod_libre(request):
+    musiques = Musique.objects.filter(ecoutable_accueil=True)
+    return render(request, 'prod_libre.html', {'musiques': musiques})
 
 from django.contrib.auth.decorators import login_required
 from django.db import models
