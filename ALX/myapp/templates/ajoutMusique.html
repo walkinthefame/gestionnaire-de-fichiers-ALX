@@ -3,7 +3,7 @@
 <ul>
     {% for musique in musiques %}
     <li>
-        {{ musique.titre }} - {{ musique.artiste }} ({{ musique.duree }} {{ musique.style }} {{ musique.date_ajout }})
+        {{ musique.titre }} - {{ musique.artiste }} ({{ musique.duree }} Style : {{ musique.style }} Ajoutée le :{{ musique.date_ajout }})
         {% if musique.fichier %}
             <audio controls>
                 <source src="{{ musique.fichier.url }}" type="audio/mpeg">

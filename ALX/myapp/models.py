@@ -15,7 +15,7 @@ class Musique(models.Model):
     style = models.CharField(max_length=50)
     date_ajout = models.DateField(auto_now_add=True)
     fichier = models.FileField(upload_to='musiques/', blank=False, null=False)
-    publique = models.BooleanField(default=False, help_text="Accessible à tous les utilisateurs")
+    publique = models.BooleanField(default=False, help_text="Accessible à tous les utilisateurs ayant un compte")
     utilisateurs_autorises = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, related_name='musiques_autorisees')
     utilisateurs_autorises_telechargement = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, related_name='musiques_autorisees_telechargement')
     ecoutable_accueil = models.BooleanField(default=False, help_text="Musique de découverte")

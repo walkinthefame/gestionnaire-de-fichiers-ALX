@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Liste des Prods de ALX</h1>
+<h1>Liste des Prods de ALX privées</h1>
 <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
 <ul>
         {% for musique in musiques %}
@@ -11,6 +11,7 @@
                                 <source src="{{ musique.fichier.url }}" type="audio/mpeg">
                                 Votre navigateur ne supporte pas la lecture audio.
                         </audio>
+                <a href="{{ musique.fichier.url }}" download class="btn btn-sm btn-success ml-2">Télécharger</a>
                 {% endif %}
         </li>
         {% endfor %}
