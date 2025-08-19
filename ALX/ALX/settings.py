@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+_)9byh0e1x%9^+vk26g27wk3*sq*t*%a&rpg##x6ibsz7umxd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['yossah.pythonanywhere.com']
 
 
 # Application definition
@@ -127,3 +127,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'musiques')
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Ajoutez cette ligne
+
+# Media files (MP3 uploads)
+import os
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'musiques')
+
+# ...existing code...

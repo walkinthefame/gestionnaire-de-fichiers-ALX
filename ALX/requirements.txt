@@ -1,0 +1,4 @@
+asgiref==3.9.1
+Django==5.2.5
+mutagen==1.47.0
+sqlparse==0.5.3
